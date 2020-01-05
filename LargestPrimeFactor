@@ -1,0 +1,23 @@
+//This solution is not efficient
+
+function largestPrimeFactor(number) {
+  return Math.max(...getPrimeFactors(number));
+  
+}
+
+function getPrimeFactors(number){
+  const factors = getFactors(number);
+  return factors.filter((factor) => getFactors(factor).length <= 2);
+}
+
+
+
+function getFactors(number){
+  let factors = [];
+  for(let i = 0; i <= number; i++){
+    if(number % i === 0){
+      factors.push(i);
+    }
+  }
+  return factors;
+}
